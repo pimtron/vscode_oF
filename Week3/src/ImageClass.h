@@ -15,7 +15,9 @@ public:
 	ofColor color;
 	int startingX;
 	int startingY;
-    int circleRadius;
+    int cornerRadius;
 	int size;
+
+	float bgFade;
 };
 
