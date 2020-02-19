@@ -26,6 +26,6 @@ class ofApp : public ofBaseApp{
 
 	Shape myFirstShape;
 	//Shape definedShape;
-	vector<Shape> shapes; 
+	vector<Shape*> shapes; 
 
 };

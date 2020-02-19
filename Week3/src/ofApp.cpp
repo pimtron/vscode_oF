@@ -19,7 +19,7 @@ void ofApp::update(){
 	//Update all the drawn classes
 	myFirstShape.update();
 	for (int i = 0; i < shapes.size(); i++){  
-		shapes[i].update();  
+		shapes[i]->update();  
 	}  
 
 	//Fade the class out subtly over time
@@ -36,7 +36,7 @@ void ofApp::draw(){
 	//Draw all the classes to the canvas
 	myFirstShape.draw();
 	for (int i = 0; i < shapes.size(); i++){  
-		shapes[i].draw();  
+		shapes[i]->draw();  
 	}  
 
 }
@@ -54,7 +54,7 @@ void ofApp::keyReleased(int key){
 //--------------------------------------------------------------
 void ofApp::mouseMoved(int x, int y){
 	//Draw classes to canvas based on mouse movement
-	shapes.push_back(Shape(x, y));
+	shapes.push_back(new Shape(x, y));
 }
 
 //--------------------------------------------------------------
