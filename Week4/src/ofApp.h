@@ -5,19 +5,38 @@
 
 class ofApp : public ofBaseApp {
 
-public:
-void setup();
-void update();
-void draw();
+    public:
+    void setup();
+    void update();
+    void draw();
 
-ofImage image1; //Original image
-ofImage image2; //Modified image
+    /*ofVideoPlayer video; //Prerecorded video
 
-ofImage wave(ofImage sourceImg);
+    ofImage image1; //Original image
+    ofImage image2; //Modified image
 
-private:
+    ofImage wave(ofImage sourceImg);
 
-ofxPanel gui;
-ofxFloatSlider wavelength, amplitude, noiseScale, distortion, ySpeed;
+    private:
 
+    ofxPanel gui;
+    ofxFloatSlider wavelength, amplitude, noiseScale, distortion, ySpeed;
+
+    ofVideoPlayer video;
+    ofFbo fbo;
+
+    int videoWidth = 720;
+    int videoHeight = 480;*/
+
+    ofVideoPlayer video; //Prerecorded video
+    ofFbo fbo;
+    ofMesh mesh;
+
+    private:
+
+    int videoWidth = 720;
+    int videoHeight = 480;
+    int W = 100; //Grid size
+    int H = 100;
+    int meshSize = 6;
 };
