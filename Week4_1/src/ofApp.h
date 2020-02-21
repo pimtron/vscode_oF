@@ -9,7 +9,7 @@ class ofApp : public ofBaseApp{
 		void setup();
 		void update();
 		void draw();
-
+		bool mouseDisplacement;
 		void keyPressed(int key);
 		void keyReleased(int key);
 		void mouseMoved(int x, int y );
@@ -23,6 +23,7 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
 		ofMesh mesh;
+		ofMesh meshCopy;
 		ofImage image;
 		ofEasyCam easyCam;
 		vector<ofVec3f> offsets;

@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<group>
-	<wavelength>0.19475</wavelength>
-	<amplitude>50</amplitude>
-	<noiseScale>10</noiseScale>
-	<distortion>50</distortion>
-	<ySpeed>10</ySpeed>
-</group>
