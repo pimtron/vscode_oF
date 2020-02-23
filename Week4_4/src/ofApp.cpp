@@ -6,7 +6,7 @@ void ofApp::setup(){
 	ofSetFrameRate(60);
 
 	//load the image and resize it so i don't und up with 10000000 vertices
-	image.load("image-8.jpg");
+	image.load("image-7.jpg");
 	image.resize(200, 200);
 
 	//Primitive lines and vertices
