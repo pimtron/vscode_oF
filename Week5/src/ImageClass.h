@@ -9,10 +9,13 @@ public:
 	~Shape();
 
 	//void Shape::draw();
-
+	void setup();
 	void update();
 	void draw();
-	void setup();
+
+	ofParameterGroup shapeParameters;
+	ofParameter<int> tri;
+	ofParameter<int> targetRadius;
 
 	ofColor color;
 	int startingX;
@@ -24,7 +27,7 @@ public:
     int cornerRadius;
 	int size;
 	int size2;
-	
+
 	float bgFade;
 	float time = ofGetElapsedTimef();
 

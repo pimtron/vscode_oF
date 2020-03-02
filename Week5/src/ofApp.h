@@ -28,20 +28,37 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 	
 
-
-	Shape myFirstShape;
 	//Shape definedShape;
+	Shape myFirstShape;
 	vector<Shape*> shapes; 
 
+	//Line and Point
 	ofPolyline line;
-
 	vector < ofPoint > drawnPoints;
     vector < Line > lines;
 
+	ofPolyline line2;
+	vector < ofPoint > drawnPoints2;
+    vector < Line > lines2;
+
+	//Camera controls
+	ofEasyCam easyCam;
+
+	//GUI
 	ofxPanel gui; 
 	ofParameter<int> lineConnect;
+	ofParameter<string> screenShot;
 	ofParameter<int> backgroundAlpha;
+	ofParameter<int> backgroundColor;
+	ofParameter<float> rotateZ;
+	ofParameter<ofColor> lineColor;
+	ofParameter<ofColor> bgColor;
 	//ofParameter<int> triPoint;
-	
+	ofParameterGroup parameterGroup;
+	Shape shapeGroup;
+
+	float rotationZ;
+
+	bool drawGui = true;
 };
 

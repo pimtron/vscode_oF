@@ -14,6 +14,15 @@ Shape::Shape()
 
 }
 
+void Shape::setup() {
+
+	shapeParameters.setName("shape conrols");
+	shapeParameters.add(tri.set("Triangle Size", 5, 0, 100));
+	shapeParameters.add(targetRadius.set("Target Radius", 100, 0, 200));
+
+}
+
+
 Shape::Shape(int x, int y)
 {
 	color = ofColor(ofRandom(255), ofRandom(255), ofRandom(255));
@@ -22,12 +31,15 @@ Shape::Shape(int x, int y)
 	startingX2 = x;
 	startingY2 = y;
 
+	targetRadius = 50;
 	size = 150;
 	size2 = 5;
-	triXStart = ofRandom(-10,10);
-	triYStart = ofRandom(-10,10);
+
+	triXStart = tri;
+	triYStart = tri;
 	triXStart2 = ofRandom(-10,10);
 	triYStart2 = ofRandom(-10,10);
+
 }
 
 
@@ -51,12 +63,12 @@ void Shape::update() {
     startingY = startingY;
 	startingY2 = startingY2 + 5;
 	cornerRadius = ofRandom(10,50);
-	size = size - 1;
 
-	if (size < 3 ){
-	size = 0;
+	targetRadius = targetRadius - 1;
+
+	if (targetRadius < 3 ){
+	targetRadius = 0;
 	};
-
 
 
 }
@@ -80,7 +92,7 @@ void Shape::draw()
 	ofNoFill();
 	ofSetColor(0, 0, 0);
 	ofTranslate(startingX, startingY);
-	ofDrawRectRounded(0, 0, size, size, cornerRadius);
+	ofDrawRectRounded(0, 0, targetRadius, targetRadius, cornerRadius);
 	ofPopMatrix();
 
 	//Drips
@@ -91,6 +103,16 @@ void Shape::draw()
 	ofTranslate(startingX2, startingY2);
 	ofDrawRectRounded(0, 0, size2, size2, cornerRadius);
 	ofPopMatrix();
+
+	//Cubes
+	ofSetRectMode(OF_RECTMODE_CENTER);
+	ofPushMatrix();
+	ofSetColor(250, 250, 250);
+	ofFill();
+	ofTranslate(startingX, startingY);
+	ofDrawBox(5);
+	ofPopMatrix();
+
 
 
 }
