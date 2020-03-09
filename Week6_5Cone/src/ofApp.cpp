@@ -41,7 +41,7 @@ void ofApp::setup(){
 	//Window size setup
 	ofSetWindowShape(1000, 1000);
 	ofSetBackgroundAuto(false);  
-	ofSetFrameRate(30); 
+	ofSetFrameRate(60); 
 	ofEnableAlphaBlending();
 	ofSetBackgroundColor(250,250,250);
 
@@ -59,7 +59,7 @@ void ofApp::update(){
 	//int x = ofRandom(0,1000);
 	//int y = ofRandom(0,1000);
 
-	//walk(x,y);
+	walk(ofGetWidth() / 2, ofGetHeight() / 2);
 	//Update all the drawn classes
 	myFirstShape.update();
 	for (int i = 0; i < shapes.size(); i++){  
@@ -85,12 +85,10 @@ void ofApp::draw(){
 	ofNoFill();
 
 	ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
-	ofRotateZ(rotationZ);
-	ofRotateY(rotationY);
-	ofRotateX(rotationX);
 
 
-	for (int i = 0; i < 30; i++){
+
+	for (int i = 0; i < 5; i++){
 		//for (int j = 0; j < 30; j++){
 			ofRotateDeg(ofGetElapsedTimef());
     		ofEnableAlphaBlending(); 
@@ -98,36 +96,38 @@ void ofApp::draw(){
 			//ofScale(0.9);
 			//ofDrawRectRounded(0, 0, size, size, cornerRadius);
 			ofSetColor(220, 220, 220, 50);
-			//ofDrawCone(0, -175, 50, 350);
-			ofDrawIcoSphere(0, inLoc2, 0, 3);
+			ofDrawCone(0, -175, 50, inLoc2);
+			//ofDrawIcoSphere(0, inLoc2, 0, 3);
 			first.set(0, 350);
-
+			ofRotateZ(rotationZ);
+			ofRotateY(rotationY);
+			ofRotateX(rotationX);
 
 	}
 
-	for (int i = 0; i < 30; i++){
+	for (int i = 0; i < 5; i++){
 		//for (int j = 0; j < 30; j++){
 		ofRotateDeg(ofGetElapsedTimef());
 		//ofRotateY(180);
 		//ofScale(0.9);
 		//ofDrawRectRounded(0, 0, size, size, cornerRadius);
 		ofSetColor(50, 50, 50);
-		//ofDrawCone(0, -175, 50, 350);
-		ofDrawIcoSphere(0, 200, 0, 5);
+		ofDrawCone(0, -125, 20, inLoc);
+		//ofDrawIcoSphere(0, 200, 0, 5);
 		first.set(0, 350);
 
 
 	}
 
-	for (int i = 0; i < 30; i++){
+	for (int i = 0; i < 5; i++){
 		//for (int j = 0; j < 30; j++){
 		ofRotateDeg(ofGetElapsedTimef());
 		//ofRotateY(90);
 		//ofScale(0.9);
 		//ofDrawRectRounded(0, 0, size, size, cornerRadius);
 		ofSetColor(r, g, b);
-		//ofDrawCone(0, -175, 50, 350);
-		ofDrawIcoSphere(0, inLoc, 0, 5);
+		ofDrawCone(0, -175, 50, inLoc);
+		//ofDrawIcoSphere(0, inLoc, 0, 5);
 		first.set(0, 350);
 	}
 
@@ -159,14 +159,14 @@ void ofApp::draw(){
 			
 
 
-		if(inLoc  < 1 || inLoc  > 300)
+		if(inLoc  < 1 || inLoc  > 500)
 		{
 		inLocSpeed =- inLocSpeed;
 		}
 
 		inLoc = inLoc - inLocSpeed;
 
-		if(inLoc2  < 1 || inLoc2  > 300)
+		if(inLoc2  < 1 || inLoc2  > 600)
 		{
 		inLoc2Speed =- inLoc2Speed ;
 		}
