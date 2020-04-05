@@ -10,8 +10,8 @@ ofPoint second;
 
 //Distance Variables
 int inLoc = 50;
-int inLoc2 = 250;
-int inLoc3 = 50;
+int inLoc2 = 100;
+int inLoc3 = 150;
 
 //Distance Variables
 int inLocSpeed = 1;
@@ -28,7 +28,7 @@ float rspeed = .25;
 float gspeed = .25;
 float bspeed = .25;
 
-
+float t = ofGetElapsedTimef(); 
 
 //--------------------------------------------------------------
 void ofApp::setup(){
@@ -45,7 +45,7 @@ void ofApp::setup(){
 	ofSetBackgroundAuto(false);  
 	ofSetFrameRate(60); 
 	ofEnableAlphaBlending();
-	ofSetBackgroundColor(250,250,250);
+	ofSetBackgroundColor(150,150,150);
 
 
 }
@@ -73,7 +73,7 @@ void ofApp::update(){
 
 	}
 	
-			// <------ magic happens here --------->
+	// <------ magic happens here --------->
 
 		for (int i = 0; i < shapes.size(); i++){
 			shapes[i]->update();
@@ -85,11 +85,12 @@ void ofApp::update(){
 		}  
 	
 
-
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
+
+
 
 	//ofSetRectMode(OF_RECTMODE_CENTER);
 	ofPushMatrix();
@@ -100,11 +101,15 @@ void ofApp::draw(){
 
 
 	for (int i = 0; i < 5; i++){
+		//for (int j = 0; j < 30; j++){
 			ofRotateDeg(ofGetElapsedTimef());
     		ofEnableAlphaBlending(); 
+			//ofRotateY(90);
+			//ofScale(0.9);
+			//ofDrawRectRounded(0, 0, size, size, cornerRadius);
 			ofSetColor(220, 220, 220, 50);
-			//ofDrawCone(0, -175, 50, inLoc2);
-			ofDrawIcoSphere(0, inLoc2, 0, 20);
+			ofDrawBox(0, 0, 0, inLoc2, inLoc2, inLoc2);
+			//ofDrawIcoSphere(0, inLoc2, 0, 3);
 			first.set(0, 350);
 			ofRotateZ(rotationZ);
 			ofRotateY(rotationY);
@@ -115,9 +120,12 @@ void ofApp::draw(){
 	for (int i = 0; i < 5; i++){
 		//for (int j = 0; j < 30; j++){
 		ofRotateDeg(ofGetElapsedTimef());
+		//ofRotateY(180);
+		//ofScale(0.9);
+		//ofDrawRectRounded(0, 0, size, size, cornerRadius);
 		ofSetColor(50, 50, 50);
-		//ofDrawCone(0, -125, 20, inLoc);
-		ofDrawIcoSphere(0, 200, 0, 5);
+		ofDrawBox(0, 0, 0, inLoc, inLoc, inLoc);
+		//ofDrawIcoSphere(0, 200, 0, 5);
 		first.set(0, 350);
 
 
@@ -126,8 +134,12 @@ void ofApp::draw(){
 	for (int i = 0; i < 5; i++){
 		//for (int j = 0; j < 30; j++){
 		ofRotateDeg(ofGetElapsedTimef());
+		//ofRotateY(90);
+		//ofScale(0.9);
+		//ofDrawRectRounded(0, 0, size, size, cornerRadius);
 		ofSetColor(r, g, b);
-		ofDrawIcoSphere(0, inLoc, 0, 10);
+		ofDrawBox(0, 0, 0, inLoc3, inLoc3, inLoc3);
+		//ofDrawIcoSphere(0, inLoc, 0, 5);
 		first.set(0, 350);
 	}
 
@@ -143,20 +155,29 @@ void ofApp::draw(){
       if ((b > 254 || b < 0 )) {
         gspeed = gspeed * -1;
       }
-	
-		if(inLoc  < 1 || inLoc  > 500)
+
+		if(inLoc  < 1 || inLoc  > 400)
 		{
 		inLocSpeed =- inLocSpeed;
 		}
 
 		inLoc = inLoc - inLocSpeed;
 
-		if(inLoc2  < 1 || inLoc2  > 600)
+		if(inLoc2  < 1 || inLoc2  > 550)
 		{
 		inLoc2Speed =- inLoc2Speed ;
 		}
 
 		inLoc2 = inLoc2 - inLoc2Speed;
+
+		if(inLoc3  < 1 || inLoc3  > 500)
+		{
+		inLoc3Speed =- inLoc3Speed ;
+		}
+
+		inLoc3 = inLoc3 - inLoc3Speed;
+
+
 
 	ofPopMatrix();
 
@@ -168,10 +189,17 @@ void ofApp::draw(){
 	ofDisableAlphaBlending();  
 
 	rotationY = rotationY + .1;
+
+	
+
+
+
+
 }
 
 
 void ofApp::walk(int x, int y){
+
 	shapes.push_back(new Shape(x, y));
 }
 
@@ -180,7 +208,6 @@ void ofApp::walk(int x, int y){
 void ofApp::keyPressed(int key){
 
 }
-
 
 //--------------------------------------------------------------
 void ofApp::keyReleased(int key){

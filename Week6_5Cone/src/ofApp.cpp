@@ -43,7 +43,7 @@ void ofApp::setup(){
 	ofSetBackgroundAuto(false);  
 	ofSetFrameRate(60); 
 	ofEnableAlphaBlending();
-	ofSetBackgroundColor(250,250,250);
+	ofSetBackgroundColor(150,150,150);
 
 
 }
@@ -71,6 +71,18 @@ void ofApp::update(){
 
 	}
 	
+		// <------ magic happens here --------->
+
+		for (int i = 0; i < shapes.size(); i++){
+			shapes[i]->update();
+		}
+		myFirstShape.draw();
+
+		for (int i = 0; i < shapes.size(); i++){  
+			shapes[i]->draw();  
+		}  
+	
+
 
 
 }
@@ -203,20 +215,6 @@ void ofApp::draw(){
 	
 
 
-	// <------ magic happens here --------->
-
-	for (int i = 0; i < shapes.size(); i++){
-		shapes[i]->update();
-	}
-
-	//shapes.push_back(new Shape(x, y));
-	
-	//Draw all the classes to the canvas
-	myFirstShape.draw();
-
-	for (int i = 0; i < shapes.size(); i++){  
-		shapes[i]->draw();  
-	}  
 
 
 

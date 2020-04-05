@@ -44,8 +44,7 @@ class ofApp : public ofBaseApp{
 
     	vector < ofPoint > points;
    		vector < Line > lines;
-		
-
+	
 };
 
 

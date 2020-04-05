@@ -55,7 +55,7 @@ void Shape::draw()
 	ofSetRectMode(OF_RECTMODE_CENTER);
 	ofPushMatrix();
 	ofFill();
-	ofSetColor(50, 50, 50);
+	ofSetColor(250, 250, 250);
 	ofTranslate(startingX, startingY);
 	ofDrawRectRounded(0, 0, size, size, cornerRadius);
 	ofPopMatrix();
